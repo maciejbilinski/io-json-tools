@@ -18,7 +18,7 @@ Po zatwierdzeniu pull requesta squashujemy brancha (żeby na developie pojawiał
 2. Klikamy **Open**
 3. Wybieramy folder ze sklonowanym projektem
 4. Klikamy **Open**
-5. Powinien nam się stworzyć folder **.idea** i w dolnym panelu **Build** powinien się wykonać proces **Sync**
+5. Powinien nam się stworzyć folder **.idea** i w dolnym panelu **Build** powinien się wykonać proces **Sync** (czekamy aż się zakończy)
 6. Następnie przechodzimy do konfiguracji budowania - w górnym panelu obok ikony **młotka** jest pokazana aktualna konfiguracja (*prawdopodobnie **Current File***).
 7. Klikamy w nią i wybieramy **Edit configurations…**
 8. Klikamy „**Add new run configuration…**”
