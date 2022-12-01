@@ -1,0 +1,80 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+
+    <style>
+        div{
+            height: 3vh;
+            margin-left: 2.5%;
+        }
+        textarea{
+            height: 40vh;
+            width: 95%;
+            min-width: 95%;
+            max-width: 95%;
+            margin: 0 2.5% 5px;
+        }
+        button{
+            width: 300px;
+            padding: 10px;
+            margin-right: 2.5%;
+
+        }
+    </style>
+    <script type="text/javascript">
+        window.addEventListener('load', function(){
+            const btn = document.getElementById('send');
+            btn.addEventListener('click', function(){
+                btn.disabled = true;
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("output").value = this.responseText;
+                    btn.disabled = false;
+                }
+                const path = document.getElementById('path').value;
+
+                xhttp.open("POST", `http://localhost:8080/api/v1/${path}`, true);
+                xhttp.send(document.getElementById("input").value);
+            });
+            document.querySelectorAll('textarea').forEach(function(t){
+                t.addEventListener('keydown', function(e){
+                    if (e.key == 'Tab') {
+                        e.preventDefault();
+                        var start = this.selectionStart;
+                        var end = this.selectionEnd;
+
+                        // set textarea value to: text before caret + tab + text after caret
+                        this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
+
+                        // put caret at right position again
+                        this.selectionStart = this.selectionEnd = start + 1;
+                    }
+                });
+            });
+            document.getElementById('input').value = '{\n\t"json": {\n\t\t"example": 3\n\t}\n}';
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <select id="path" value="minify">
+            <option value="minify">Minify</option>
+            <option value="pretty">Pretty</option>
+            <option value="subset">Subset</option>
+            <option value="skip">Skip</option>
+            <option value="compare">Compare</option>
+        </select>
+    </div>
+    <textarea id="input" placeholder="input" autofocus="autofocus" rows="5"></textarea>
+    <textarea id="output" placeholder="output" rows="5" readonly="readonly"></textarea>
+    <div>
+        <button id="send">
+            Send
+        </button>
+    </div>
+</body>
+</html>
