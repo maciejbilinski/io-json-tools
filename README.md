@@ -29,8 +29,48 @@ Po zatwierdzeniu pull requesta squashujemy brancha (żeby na developie pojawiał
 13. Klikamy **Apply** i klikamy **OK**
 14. Klikamy **zielony trójkąt** obok **nazwy konfiguracji** (*w moim przypadku **run***)
 15. Ostatnim logiem (logi są w dolnym panelu w zakładce **Build**) powinno być coś w stylu „_Started JSONToolsApplication in 7.189 seconds (JVM running for 8.082)_”
-16. Otwieramy przeglądarkę
-17. Wpisujemy w polu adresu URL [http://localhost:8080/test](http://localhost:8080/test) i powinna nam się wyświetlić strona z napisem „**TEST**”
+16. Otwieramy plik **test.html**
+17. Klikamy przycisk "**Send**"
+
+## Testy nieautomatyczne
+Jeżeli napiszemy jakąś funkcjonalność logiczną możemy ją testować za pomocą pliku **test.html**.
+
+1. Włączamy aplikację
+2. Czekamy aż się załaduje (pojawia się log "Started JSONToolsApplication (...)")
+3. Otwieramy plik **test.html**
+4. Wpisujemy [poprawny input](#input)
+5. Klikamy przycisk **Send**
+
+Po każdej zmianie trzeba zresetować aplikację i poczekać, aż się załaduje. 
+_Polecam [Hot reload](https://stackoverflow.com/questions/23155244/spring-boot-hotswap-with-intellij-ide)_.
+
+<a id="input"></a>
+### Poprawny input
+#### Minify/Pretty
+JSON, na którym ma być wykonana operacja powinien się znajdować w kluczu **json** pola wejściowego.
+#### Subset/Skip
+JSON, na którym ma być wykonana operacja powinien się znajdować w kluczu **json** pola wejściowego. Podzbiór kluczy powinien być tablicą napisów i znajdować się w kluczu **keys** pola wejściowego.
+
+_Przykład:_
+
+    {
+        "json": {
+            "example": 3,
+            "test": "test"
+        },
+        "keys": [
+            "example"
+        ]
+    }
+#### Compare
+Teksty do porównania powinny być **napisami** i znajdować się pod kluczami **text1** i **text2** pola wejściowego.
+
+_Przykład:_
+
+    {
+        "text1": "Linia 1\nLinia 2",
+        "text2": "Linia 1\nRóżna linia\nDodatkowa linia"
+    }
 
 ## Autorzy
 - Maciej Biliński
