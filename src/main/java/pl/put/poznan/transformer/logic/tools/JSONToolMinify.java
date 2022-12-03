@@ -1,15 +1,18 @@
 package pl.put.poznan.transformer.logic.tools;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import pl.put.poznan.transformer.logic.domian.JSONException;
 import pl.put.poznan.transformer.logic.domian.JSONObject;
-
-import java.io.IOException;
 
 /**
  * The type Json tool minify.
  */
 public class JSONToolMinify extends JSONToolDecorator {
+
+    /**
+     * Instantiates a new Json tool minify.
+     */
+    public JSONToolMinify(){}
+
     /**
      * Instantiates a new Json tool minify.
      *
@@ -21,7 +24,10 @@ public class JSONToolMinify extends JSONToolDecorator {
 
     @Override
     public JSONObject decorate(JSONObject json) throws JSONException {
-        return minify(super.decorate(json));
+        if (wrappee != null)
+            return minify(super.decorate(json));
+        else
+            return minify(json);
     }
 
     /**
@@ -30,7 +36,7 @@ public class JSONToolMinify extends JSONToolDecorator {
      * @param validatedJSON the validated json
      * @return the json object
      */
-    public JSONObject minify(JSONObject validatedJSON){
-        return new JSONObject(validatedJSON.toString()) ;
+    public JSONObject minify(JSONObject validatedJSON) throws JSONException {
+        return new JSONObject(parse(validatedJSON.getJson()).toString());
     }
 }

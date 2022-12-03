@@ -9,6 +9,7 @@ import java.io.IOException;
  * The interface Ijson tool.
  */
 interface IJSONTool {
+
     /**
      * Decorate json object.
      *
@@ -16,6 +17,6 @@ interface IJSONTool {
      * @return the json object
      * @throws IOException the io exception
      */
-    public JSONObject decorate(JSONObject json) throws JSONException;
+    JSONObject decorate(JSONObject json) throws JSONException;
 }
 

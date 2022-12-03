@@ -3,8 +3,6 @@ package pl.put.poznan.transformer.logic.tools;
 import pl.put.poznan.transformer.logic.domian.JSONException;
 import pl.put.poznan.transformer.logic.domian.JSONObject;
 
-import java.io.IOException;
-
 /**
  * The type Json tool blacklist.
  */
@@ -30,22 +28,26 @@ public class JSONToolBlacklist extends JSONToolFilter {
 
     @Override
     public JSONObject decorate(JSONObject json) throws JSONException {
-        return super.decorate(json);
+        if (wrappee != null)
+            return super.decorate(json);
+        else
+            return blacklist(json);
     }
 
 
     /**
      * Whitelist json object.
-     *TODO zaimplementować metodę która usunie z jsona te klucze które są wisywane do
+     * //TODO zaimplementować metodę która usunie z jsona te klucze które są wisywane do
      * filterlist w kontruktorze
      *
      * @param json the json
      * @return the json object
      */
-    private JSONObject blacklist(JSONObject json){
-        return json;
+    private JSONObject blacklist(JSONObject json) {
+        if (filterList == null)
+            return json;
+        else return new JSONObject("to musisz zmienić");
     }
-
 
 
 }

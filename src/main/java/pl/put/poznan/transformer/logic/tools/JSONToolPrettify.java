@@ -3,13 +3,13 @@ package pl.put.poznan.transformer.logic.tools;
 import pl.put.poznan.transformer.logic.domian.JSONException;
 import pl.put.poznan.transformer.logic.domian.JSONObject;
 
-import java.io.IOException;
-
 /**
  * The type Json tool prettify.
  */
 public class JSONToolPrettify extends JSONToolDecorator {
-
+    public JSONToolPrettify() {
+        super();
+    }
 
     /**
      * Instantiates a new Json tool prettify.
@@ -22,7 +22,9 @@ public class JSONToolPrettify extends JSONToolDecorator {
 
     @Override
     public JSONObject decorate(JSONObject json) throws JSONException {
-        return pretty(super.decorate(json));
+        if (wrappee != null)
+            return pretty(super.decorate(json));
+        else return pretty(json);
     }
 
     /**
@@ -31,7 +33,7 @@ public class JSONToolPrettify extends JSONToolDecorator {
      * @param json the json
      * @return the json object
      */
-    public JSONObject pretty(JSONObject json){
+    public JSONObject pretty(JSONObject json) throws JSONException {
         return new JSONObject(parse(json.getJson()).toPrettyString());
     }
 }

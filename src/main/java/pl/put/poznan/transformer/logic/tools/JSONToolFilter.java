@@ -3,11 +3,11 @@ package pl.put.poznan.transformer.logic.tools;
 /**
  * The type Json tool filter.
  */
-public abstract class JSONToolFilter extends JSONToolDecorator{
+public abstract class JSONToolFilter extends JSONToolDecorator {
     /**
      * The Filter list.
      */
-    protected String[] filterList;
+    protected String[] filterList = null;
 
     /**
      * Instantiates a new Json tool filter.

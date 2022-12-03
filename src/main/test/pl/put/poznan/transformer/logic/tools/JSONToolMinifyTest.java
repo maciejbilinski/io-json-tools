@@ -7,23 +7,22 @@ import pl.put.poznan.transformer.logic.domian.JSONObject;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-class JSONToolPrettifyTest extends BaseTest {
-
+class JSONToolMinifyTest extends BaseTest {
     @Test
-    void testIsPrettifyDecoratorWorking(){
-        JSONToolDecorator pretty = new JSONToolPrettify();
+    void testIsMinifyDecoratorWorking(){
+        JSONToolDecorator pretty = new JSONToolMinify();
         JSONObject ouput = new JSONObject("pap");
+        JSONObject input = new JSONObject(prettyJson1);
         try {
-            ouput = pretty.decorate(new JSONObject(miniJson1));
+            ouput = pretty.decorate(input);
         } catch (JSONException e) {
             System.err.println(e.getMessage());
         }
-        assertEquals((ouput.getJson()), prettyJson1);
+        assertEquals(ouput.getJson(), miniJson1);
     }
 
     @Test
-    void testIsPrettufyDecoratorThrowingExepcion(){
+    void testIsMinifyDecoratorThrowingExepcion(){
         JSONToolDecorator pretty = new JSONToolPrettify();
         assertThrows(JSONException.class,()->pretty.decorate(new JSONObject(notAJson)));
     }
