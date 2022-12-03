@@ -1,6 +1,10 @@
-package pl.put.poznan.transformer.logic;
+package pl.put.poznan.transformer.logic.tools;
 
 import org.junit.jupiter.api.Test;
+import pl.put.poznan.transformer.logic.domian.JSONObject;
+import pl.put.poznan.transformer.logic.tools.JSONToolDecorator;
+import pl.put.poznan.transformer.logic.tools.JSONToolPrettify;
+import pl.put.poznan.transformer.logic.tools.JSONToolValidator;
 
 import java.io.IOException;
 
@@ -15,9 +19,9 @@ class JSONToolPrettifyTest {
             "}";
     @Test
     void testIsPrettifyDecoratorWorking(){
-        JSONToolDecorator decorator = new JSONToolPrettify (new JSONToolValidator());
+        JSONToolDecorator decorator = new JSONToolPrettify(new JSONToolValidator());
         try {
-            System.out.println(decorator.decore(test));
+            System.out.println(decorator.decorate(new JSONObject(test)).getJson());
         } catch (IOException e) {
             System.out.println("error");
         }

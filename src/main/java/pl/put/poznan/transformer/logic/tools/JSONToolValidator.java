@@ -1,4 +1,4 @@
-package pl.put.poznan.transformer.logic;
+package pl.put.poznan.transformer.logic.tools;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -6,18 +6,29 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import pl.put.poznan.transformer.logic.domian.JSONException;
+import pl.put.poznan.transformer.logic.domian.JSONObject;
 
 import java.io.IOException;
 
-public class JSONToolValidator implements IJSONTool{
+/**
+ * The type Json tool validator.
+ */
+public class JSONToolValidator implements IJSONTool {
     @Override
-    public String decore(String json) throws IOException {
-        if (isValid(json))
-            return json + "papaj";
+    public JSONObject decorate(JSONObject json) throws JSONException {
+        if (isValid(json.getJson()))
+            return json;
         else
-            throw (new IOException("Invalid JSON"));
+            throw (new JSONException("Invalid JSON"));
     }
 
+    /**
+     * Is valid boolean.
+     *
+     * @param json the json
+     * @return the boolean
+     */
     public static boolean isValid(String json) {
         boolean retValue = true;
         try {

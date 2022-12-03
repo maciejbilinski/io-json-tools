@@ -1,24 +1,45 @@
-package pl.put.poznan.transformer.logic;
+package pl.put.poznan.transformer.logic.tools;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import pl.put.poznan.transformer.logic.domian.JSONException;
+import pl.put.poznan.transformer.logic.domian.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONToolDecorator implements IJSONTool {
+/**
+ * The type Json tool decorator.
+ */
+abstract class JSONToolDecorator implements IJSONTool {
 
-    private IJSONTool wrappee;
+    /**
+     * The Wrappee.
+     */
+    protected IJSONTool wrappee;
 
+    /**
+     * Instantiates a new Json tool decorator.
+     *
+     * @param tool the tool
+     */
     public JSONToolDecorator(IJSONTool tool){
         this.wrappee = tool;
     }
 
+    /**
+     * The Object mapper.
+     */
     protected final ObjectMapper objectMapper = new ObjectMapper();
+
+    public JSONObject decorate(JSONObject json)throws JSONException {
+        return wrappee.decorate(json);
+    }
 
     /**
      * Parse string into JsonNode object
+     *
      * @param json string with data in JSON format
      * @return null if string doesn't contain valid json, jsonNode otherwise
      */
@@ -33,6 +54,7 @@ public class JSONToolDecorator implements IJSONTool {
 
     /**
      * Extract 'json' param from JsonNode object
+     *
      * @param json parsed JSON
      * @return null if json doesn't contain 'json' property in proper format, value of 'json' otherwise
      */
@@ -47,6 +69,7 @@ public class JSONToolDecorator implements IJSONTool {
 
     /**
      * Extract 'json' param from JsonNode object
+     *
      * @param json parsed JSON
      * @return null if json doesn't contain 'keys' property in proper format, value of 'keys' otherwise
      */
@@ -67,6 +90,7 @@ public class JSONToolDecorator implements IJSONTool {
 
     /**
      * Extract 'text1' and 'text2' params from JsonNode object
+     *
      * @param json parsed JSON
      * @return null if missing or incorrect 'text1' and 'text2' params, array of texts otherwise
      */
@@ -85,8 +109,6 @@ public class JSONToolDecorator implements IJSONTool {
         return null;
     }
 
-    public String decore(String json)throws IOException {
-        return wrappee.decore(json);
-    }
+
 
 }
