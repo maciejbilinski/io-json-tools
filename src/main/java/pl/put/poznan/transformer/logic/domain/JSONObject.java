@@ -1,4 +1,4 @@
-package pl.put.poznan.transformer.logic.domian;
+package pl.put.poznan.transformer.logic.domain;
 
 /**
  * The type Json object.

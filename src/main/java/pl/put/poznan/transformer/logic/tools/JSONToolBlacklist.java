@@ -1,7 +1,7 @@
 package pl.put.poznan.transformer.logic.tools;
 
-import pl.put.poznan.transformer.logic.domian.JSONException;
-import pl.put.poznan.transformer.logic.domian.JSONObject;
+import pl.put.poznan.transformer.logic.domain.JSONException;
+import pl.put.poznan.transformer.logic.domain.JSONObject;
 
 /**
  * The type Json tool blacklist.
