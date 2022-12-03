@@ -91,10 +91,14 @@ public class JSONToolsService {
 
     /**
      * Convert JsonNode to pretty string
-     * TODO: 30/11/2022 ulepszyć wyjście dla tablic - niech każdy element będzie w nowej linii
+     *
      * @param validatedJSON validated JSON
      * @return pretty string in JSON format
      */
+
+
+    /* TODO trzeba zmienic te medody poniżej  żeby wykorzystywały JSONToole */
+
     public String pretty(JsonNode validatedJSON){
         return validatedJSON.toPrettyString();
     }
