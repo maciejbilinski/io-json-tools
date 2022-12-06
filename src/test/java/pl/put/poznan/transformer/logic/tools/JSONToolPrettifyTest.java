@@ -19,8 +19,7 @@ class JSONToolPrettifyTest extends BaseTest {
         } catch (JSONException e) {
             System.err.println(e.getMessage());
         }
-        //assertEquals((ouput.getJson()), prettyJson1rn);
-        assertEquals(ouput.getJson(),prettyJson1n);
+        assertEquals((ouput.getJson()), prettyJson1);
     }
 
     @Test

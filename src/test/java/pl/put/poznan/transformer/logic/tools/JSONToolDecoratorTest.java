@@ -18,12 +18,12 @@ class JSONToolDecoratorTest extends BaseTest {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        assertEquals(output.getJson(), prettyJson1rn);
+        assertEquals(output.getJson(), prettyJson1);
     }
 
     @Test
     void testMminiPretty(){
-        JSONObject pretty = new JSONObject(prettyJson1rn);
+        JSONObject pretty = new JSONObject(prettyJson1);
         JSONObject output = new JSONObject("tmp");
         JSONToolDecorator decorator = new JSONToolMinify(new JSONToolPrettify());
         try {
@@ -36,7 +36,7 @@ class JSONToolDecoratorTest extends BaseTest {
 
     @Test
     void testMminiMini(){
-        JSONObject pretty = new JSONObject(prettyJson1rn);
+        JSONObject pretty = new JSONObject(prettyJson1);
         JSONObject output = new JSONObject("tmp");
         JSONToolDecorator decorator = new JSONToolMinify(new JSONToolMinify());
         try {
@@ -57,7 +57,7 @@ class JSONToolDecoratorTest extends BaseTest {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        assertEquals(output.getJson(), prettyJson1rn);
+        assertEquals(output.getJson(), prettyJson1);
     }
 
 }
