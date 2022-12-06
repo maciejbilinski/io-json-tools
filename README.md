@@ -3,7 +3,7 @@
 Projekt z przedmiotu Inżynieria Oprogramowania. Celem projektu jest stworzenie narzędzi do plików JSON.
 
 ## Trello
-[Trello](https://trello.com/b/9nFRFUl8/sprint1)
+[sprint 1](https://trello.com/b/9nFRFUl8/sprint1)
 
 ## Backlog
 [GDrive](https://docs.google.com/spreadsheets/d/1BYmtHcCASf_tXP3-bAaPyoInwj0TD9TU/edit?usp=sharing&ouid=117444929924556355691&rtpof=true&sd=true)
