@@ -6,15 +6,16 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Build
 
 on:
   push:
     branches:
-      - develop
       - main
+      - develop
+      - 'feature/*'
   pull_request:
-    branches: [ "develop", "main" ]
+    branches: [ "develop", "main"]
 
 jobs:
   build:
@@ -43,6 +44,3 @@ jobs:
         with:
           name: github-actions-artifact-develop
           path: staging
-
-      - name: Run tests
-        run: mvn test clean
