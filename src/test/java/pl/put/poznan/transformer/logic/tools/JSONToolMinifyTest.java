@@ -12,7 +12,7 @@ class JSONToolMinifyTest extends BaseTest {
     void testIsMinifyDecoratorWorking(){
         JSONToolDecorator pretty = new JSONToolMinify();
         JSONObject ouput = new JSONObject("pap");
-        JSONObject input = new JSONObject(prettyJson1);
+        JSONObject input = new JSONObject(prettyJson1rn);
         try {
             ouput = pretty.decorate(input);
         } catch (JSONException e) {
