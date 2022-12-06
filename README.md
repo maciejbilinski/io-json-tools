@@ -32,6 +32,9 @@ Po zatwierdzeniu pull requesta squashujemy brancha (żeby na developie pojawiał
 16. Otwieramy plik **test.html**
 17. Klikamy przycisk "**Send**"
 
+## Testy automatyczne 
+Wszystkie testy utwrzone zgodnie z koncepcją [Junit5](https://junit.org/junit5/docs/current/user-guide/#writing-tests) wywołują się automatycznie przez GitHub Actions przy każdym pushu na branche: main, develop, 'feature/*', oraz przy pull request dla branchy: main, develop
+
 ## Testy nieautomatyczne
 Jeżeli napiszemy jakąś funkcjonalność logiczną możemy ją testować za pomocą pliku **test.html**.
 
