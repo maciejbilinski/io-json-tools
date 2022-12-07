@@ -14,17 +14,15 @@ abstract class JSONToolBox {
      * Parse string into JsonNode object
      *
      * @param json string with data in JSON format
-     * @return null if string doesn't contain valid json, jsonNode otherwise
+     * @return throws JSONException("Invalid JSON") if string doesn't contain valid json, jsonNode otherwise
      */
     static public JsonNode parse(String json) throws JSONException {
         final ObjectMapper objectMapper = new ObjectMapper();
-
-
         try {
             JsonNode node = objectMapper.readTree(json);
             if (node.isObject()) return node;
-        } catch (Exception ignored) {
-            throw new JSONException("Invalid JSON" + ignored.getMessage());
+        } catch (Exception e) {
+            throw new JSONException("Invalid JSON" + e.getMessage());
         }
         return null;
     }
@@ -41,8 +39,8 @@ abstract class JSONToolBox {
         try {
             JsonNode input = json.get("json");
             if (input.isObject()) return input;
-        } catch (Exception ignored) {
-            throw new JSONException("Invalid JSON" + ignored.getMessage());
+        } catch (Exception e) {
+            throw new JSONException("Invalid JSON" + e.getMessage());
         }
         return null;
     }
@@ -66,8 +64,8 @@ abstract class JSONToolBox {
                 }
                 return output;
             }
-        } catch (Exception ignored) {
-            throw new JSONException("Invalid JSON" + ignored.getMessage());
+        } catch (Exception e) {
+            throw new JSONException("Invalid JSON" + e.getMessage());
         }
         return null;
     }
@@ -91,8 +89,8 @@ abstract class JSONToolBox {
             if (!jsonText2.isTextual()) return null;
             texts[1] = jsonText2.asText();
             return texts;
-        } catch (Exception ignored) {
-            throw new JSONException("Invalid JSON" + ignored.getMessage());
+        } catch (Exception e) {
+            throw new JSONException("Invalid JSON" + e.getMessage());
         }
     }
 }
