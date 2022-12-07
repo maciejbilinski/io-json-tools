@@ -22,8 +22,8 @@ class JSONToolMinifyTest extends BaseTest {
     }
 
     @Test
-    void testIsMinifyDecoratorThrowingExepcion(){
-        JSONToolDecorator pretty = new JSONToolPrettify();
-        assertThrows(JSONException.class,()->pretty.decorate(new JSONObject(notAJson)));
+    void testDoesMinifyDecoratorThrowingExepcion(){
+        JSONToolDecorator mini = new JSONToolMinify();
+        assertThrows(JSONException.class,()->mini.decorate(new JSONObject(notAJson)));
     }
 }
