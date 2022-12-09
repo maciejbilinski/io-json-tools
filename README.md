@@ -1,3 +1,6 @@
+develop: [![Build](https://github.com/maciejbilinski/io-json-tools/actions/workflows/maven_build.yml/badge.svg?branch=develop)](https://github.com/maciejbilinski/io-json-tools/actions/workflows/maven_build.yml) [![Tests](https://github.com/maciejbilinski/io-json-tools/actions/workflows/maven_feature.yml/badge.svg?branch=develop)](https://github.com/maciejbilinski/io-json-tools/actions/workflows/maven_feature.yml)
+main: [![Build](https://github.com/maciejbilinski/io-json-tools/actions/workflows/maven_build.yml/badge.svg?branch=main)](https://github.com/maciejbilinski/io-json-tools/actions/workflows/maven_build.yml) [![Tests](https://github.com/maciejbilinski/io-json-tools/actions/workflows/maven_feature.yml/badge.svg?branch=main)](https://github.com/maciejbilinski/io-json-tools/actions/workflows/maven_feature.yml)
+
 # io-json-tools
 ## Opis
 Projekt z przedmiotu Inżynieria Oprogramowania. Celem projektu jest stworzenie narzędzi do plików JSON.

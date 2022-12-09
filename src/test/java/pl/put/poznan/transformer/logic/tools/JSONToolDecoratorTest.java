@@ -18,7 +18,7 @@ class JSONToolDecoratorTest extends BaseTest {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        assertEquals(output.getJson(),prettyJson1);
+        assertEquals(output.getJson(), prettyJson1);
     }
 
     @Test
@@ -57,7 +57,7 @@ class JSONToolDecoratorTest extends BaseTest {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        assertEquals(output.getJson(),prettyJson1);
+        assertEquals(output.getJson(), prettyJson1);
     }
 
 }
