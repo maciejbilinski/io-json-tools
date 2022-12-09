@@ -12,12 +12,12 @@ public class JSONToolBlacklist extends JSONToolFilter {
     private static Logger logger = LoggerFactory.getLogger(JSONToolBlacklist.class);
 
     /**
-     * Instantiates a new Json tool blacklist.
+     * Instantiates a new Json tool minify.
      *
-     * @param tool the tool
+     * @param filterList the filter list
      */
-    public JSONToolBlacklist(IJSONTool tool) {
-        super(tool);
+    public JSONToolBlacklist(String[] filterList) {
+        super(filterList);
     }
 
     /**
