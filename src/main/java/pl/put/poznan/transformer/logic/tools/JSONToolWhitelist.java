@@ -11,14 +11,13 @@ import pl.put.poznan.transformer.logic.domain.JSONObject;
 public class JSONToolWhitelist extends JSONToolFilter {
     private static Logger logger = LoggerFactory.getLogger(JSONToolWhitelist.class);
 
-
     /**
-     * Instantiates a new Json tool whitelist.
+     * Instantiates a new Json tool minify.
      *
-     * @param tool the tool
+     * @param filterList the filter list
      */
-    public JSONToolWhitelist(IJSONTool tool) {
-        super(tool);
+    public JSONToolWhitelist(String[] filterList) {
+        super(filterList);
     }
 
     /**

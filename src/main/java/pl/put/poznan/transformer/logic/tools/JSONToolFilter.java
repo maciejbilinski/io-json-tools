@@ -12,10 +12,10 @@ public abstract class JSONToolFilter extends JSONToolDecorator {
     /**
      * Instantiates a new Json tool filter.
      *
-     * @param tool the tool
+     * @param filterList the filter list
      */
-    public JSONToolFilter(IJSONTool tool) {
-        super(tool);
+    public JSONToolFilter(String[] filterList) {
+        this.filterList = filterList;
     }
 
     /**
