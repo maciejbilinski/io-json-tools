@@ -5,6 +5,9 @@ main: [![Build](https://github.com/maciejbilinski/io-json-tools/actions/workflow
 ## Opis
 Projekt z przedmiotu Inżynieria Oprogramowania. Celem projektu jest stworzenie narzędzi do plików JSON.
 
+## Trello
+[sprint 1](https://trello.com/b/9nFRFUl8/sprint1)
+
 ## Backlog
 [GDrive](https://docs.google.com/spreadsheets/d/1BYmtHcCASf_tXP3-bAaPyoInwj0TD9TU/edit?usp=sharing&ouid=117444929924556355691&rtpof=true&sd=true)
 
@@ -34,6 +37,9 @@ Po zatwierdzeniu pull requesta squashujemy brancha (żeby na developie pojawiał
 15. Ostatnim logiem (logi są w dolnym panelu w zakładce **Build**) powinno być coś w stylu „_Started JSONToolsApplication in 7.189 seconds (JVM running for 8.082)_”
 16. Otwieramy plik **test.html**
 17. Klikamy przycisk "**Send**"
+
+## Testy automatyczne 
+Wszystkie testy utwrzone zgodnie z koncepcją [Junit5](https://junit.org/junit5/docs/current/user-guide/#writing-tests) wywołują się automatycznie przez GitHub Actions przy każdym pushu na branche: main, develop, 'feature/*', oraz przy pull request dla branchy: main, develop
 
 ## Testy nieautomatyczne
 Jeżeli napiszemy jakąś funkcjonalność logiczną możemy ją testować za pomocą pliku **test.html**.
