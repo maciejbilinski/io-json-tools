@@ -23,7 +23,7 @@ class JSONToolPrettifyTest extends BaseTest {
     }
 
     @Test
-    void testIsPrettufyDecoratorThrowingExepcion(){
+    void testIsPrettifyDecoratorThrowingException(){
         JSONToolDecorator pretty = new JSONToolPrettify();
         assertThrows(JSONException.class,()->pretty.decorate(new JSONObject(notAJson)));
     }

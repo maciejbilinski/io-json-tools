@@ -37,7 +37,6 @@ public class JSONToolPrettify extends JSONToolDecorator {
             logger.debug("I am a Starting point");
             return pretty(json);
         }
-
     }
 
     /**
@@ -47,9 +46,9 @@ public class JSONToolPrettify extends JSONToolDecorator {
      * @return the json object
      */
     public JSONObject pretty(JSONObject json) throws JSONException {
-        logger.info("Prettyfing:\n"+ json.getJson());
+        logger.info("Prettying:\n"+ json.getJson());
         JSONObject tmpJson = new JSONObject(parse(json.getJson()).toPrettyString());
-        logger.info("Prettification returned:\n" + tmpJson.getJson());
+        logger.info("Prettying returned:\n" + tmpJson.getJson());
         return tmpJson;
     }
 }

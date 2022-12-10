@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class JSONToolDecoratorTest extends BaseTest {
     @Test
-    void testPrettyMnini(){
+    void testPrettyMini(){
         JSONObject mini = new JSONObject(miniJson1);
         JSONObject output = new JSONObject("tmp");
         JSONToolDecorator decorator = new JSONToolPrettify(new JSONToolMinify());
@@ -22,7 +22,7 @@ class JSONToolDecoratorTest extends BaseTest {
     }
 
     @Test
-    void testMminiPretty(){
+    void testMiniPretty(){
         JSONObject pretty = new JSONObject(prettyJson1);
         JSONObject output = new JSONObject("tmp");
         JSONToolDecorator decorator = new JSONToolMinify(new JSONToolPrettify());
@@ -35,7 +35,7 @@ class JSONToolDecoratorTest extends BaseTest {
     }
 
     @Test
-    void testMminiMini(){
+    void testMiniMini(){
         JSONObject pretty = new JSONObject(prettyJson1);
         JSONObject output = new JSONObject("tmp");
         JSONToolDecorator decorator = new JSONToolMinify(new JSONToolMinify());
