@@ -51,9 +51,9 @@ public class JSONToolMinify extends JSONToolDecorator {
      * @return the minified json object, throws JOSNExeption if json is invalid
      */
     public JSONObject minify(JSONObject json) throws JSONException {
-        logger.info("Minifing:\n" + json.getJson());
+        logger.info("minifying:\n" + json.getJson());
         JSONObject tmpJson = new JSONObject(parse(json.getJson()).toString());
-        logger.info("Minifacion returned:\n" + tmpJson.getJson());
+        logger.info("Minification returned:\n" + tmpJson.getJson());
         return tmpJson;
     }
 }
