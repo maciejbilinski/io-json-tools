@@ -1,9 +1,15 @@
 package pl.put.poznan.transformer.logic.tools;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.put.poznan.transformer.logic.domain.JSONException;
 import pl.put.poznan.transformer.logic.domain.JSONObject;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static pl.put.poznan.transformer.logic.tools.JSONToolBox.parse;
 
 /**
  * The type Json tool blacklist.
@@ -44,20 +50,21 @@ public class JSONToolBlacklist extends JSONToolFilter {
 
 
     /**
-     * Whitelist json object.
-     * //TODO zaimplementować metodę która usunie z jsona te klucze które są wisywane do
-     * filterlist w kontruktorze
+     * Blacklist json object.
      *
      * @param json the json
      * @return the json object
      */
-    private JSONObject blacklist(JSONObject json) {
-        if (filterList == null) {
+    private JSONObject blacklist(JSONObject json) throws JSONException {
+        if (filterList.length == 0) {
             logger.info("BlackList is empty");
+            logger.info("No skip performed, returned:\n" + json.getJson());
             return json;
         } else {
             logger.info("BlackList is not empty");
-            return new JSONObject("to musisz zmienić");
+            JSONObject newJson = new JSONObject((((ObjectNode)parse(json.getJson())).remove(Arrays.asList(filterList))).toString());
+            logger.info("Skip returned:\n" + newJson.getJson());
+            return newJson;
         }
     }
 
