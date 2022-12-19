@@ -13,7 +13,7 @@ class JSONShowDIffTest extends BaseTest{
         String text1 = "Line 1\nLine 2";
         String text2 = "Line 1\nDifferent line\nAdditional line";
         Integer[] expectedDiff = {1, 2};
-        assertEquals(showDIff.compare(text1, text2), expectedDiff);
+        assertArrayEquals(showDIff.compare(text1, text2), expectedDiff);
     }
 
     @Test
@@ -22,7 +22,7 @@ class JSONShowDIffTest extends BaseTest{
         String text1 = "Line 1\nLine 2\nLine 3";
         String text2 = "";
         Integer[] expectedDiff = {0, 1, 2};
-        assertEquals(showDIff.compare(text1, text2), expectedDiff);
+        assertArrayEquals(showDIff.compare(text1, text2), expectedDiff);
     }
 
     @Test
@@ -31,6 +31,6 @@ class JSONShowDIffTest extends BaseTest{
         String text1 = "";
         String text2 = "";
         Integer[] expectedDiff = {};
-        assertEquals(showDIff.compare(text1, text2), expectedDiff);
+        assertArrayEquals(showDIff.compare(text1, text2), expectedDiff);
     }
 }
