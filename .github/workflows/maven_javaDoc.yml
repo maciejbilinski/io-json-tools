@@ -38,7 +38,7 @@ jobs:
       - name: Run javaDoc
         run: |
           mvn javadoc:javadoc
-          mkdir staging && cp target/site staging
+          mkdir staging && cp -r target/site staging
 
       - name: Packaging workflow data as artifacts
         uses: actions/upload-artifact@v3
