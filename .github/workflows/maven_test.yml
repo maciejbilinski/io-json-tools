@@ -14,8 +14,6 @@ on:
         - main
         - develop
         - 'feature/*'
-  pull_request:
-    branches: [ "develop", "main"]
 
 jobs:
   build:
