@@ -1,8 +1,6 @@
 .textarea-container{
     flex: 1;
-    max-height: 100%;
     display: flex;
-    overflow-y: auto;
 }
 .textarea{
     flex: 1;
@@ -11,17 +9,6 @@
     resize: none;
     border-radius: 10px;
     padding: 10px;
-    background-color: #FFF;
-    font-size: 0.8rem;
-    overflow-y: auto;
-    font-style: normal;
-    font-family: inherit;
-    letter-spacing: normal;
-    word-spacing: normal;
-    line-height: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
 }
 .textarea:focus{
     outline: none;
