@@ -14,8 +14,6 @@ on:
         - main
         - develop
         - 'feature/*'
-  pull_request:
-    branches: [ "develop", "main"]
 
 jobs:
   build:
@@ -37,5 +35,11 @@ jobs:
 
       - name: Run tests
         run: mvn test clean
+
+      - name: Packaging workflow data as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-actions-artifact-develop
+          path: staging
 
 
