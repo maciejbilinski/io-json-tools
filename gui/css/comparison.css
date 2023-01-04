@@ -1,0 +1,11 @@
+.red{
+    background-color: #f44336;
+}
+.green{
+    background-color: #81c784;
+}
+.textarea p{
+    margin: 0;
+    height: 12px;
+    white-space: pre-wrap;
+}
