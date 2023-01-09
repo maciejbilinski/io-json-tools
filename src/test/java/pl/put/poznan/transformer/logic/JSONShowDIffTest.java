@@ -33,4 +33,22 @@ class JSONShowDIffTest extends BaseTest{
         Integer[] expectedDiff = {};
         assertArrayEquals(showDIff.compare(text1, text2), expectedDiff);
     }
+
+    @Test
+    void testWhitespaceSensitive() {
+        JSONShowDIff showDIff = new JSONShowDIff();
+        String text1 = " ";
+        String text2 = "";
+        Integer[] expectedDiff = {0};
+        assertArrayEquals(showDIff.compare(text1, text2), expectedDiff);
+    }
+
+    @Test
+    void testEmojiSensitive() {
+        JSONShowDIff showDIff = new JSONShowDIff();
+        String text1 = "❤️";
+        String text2 = "";
+        Integer[] expectedDiff = {0};
+        assertArrayEquals(showDIff.compare(text1, text2), expectedDiff);
+    }
 }
