@@ -1,5 +1,6 @@
 package pl.put.poznan.transformer.logic.tools;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pl.put.poznan.transformer.logic.BaseTest;
 import pl.put.poznan.transformer.logic.domain.JSONException;
@@ -9,17 +10,50 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class JSONToolPrettifyTest extends BaseTest {
+    private static JSONToolDecorator prettify;
+
+    @BeforeAll
+    static void init() {prettify = new JSONToolPrettify();}
 
     @Test
     void testIsPrettifyDecoratorWorking(){
-        JSONToolDecorator pretty = new JSONToolPrettify();
-        JSONObject ouput = new JSONObject("pap");
+        JSONObject output;
+        JSONObject input = new JSONObject(miniJson1);
         try {
-            ouput = pretty.decorate(new JSONObject(miniJson1));
+            output = prettify.decorate(input);
+            assertEquals(output.getJson().replace("\r", ""), prettyJson1);
         } catch (JSONException e) {
             System.err.println(e.getMessage());
+            fail();
         }
-        assertEquals((ouput.getJson()), prettyJson1);
+    }
+
+    @Test
+    void testIsPrettifyDecorationWorkingWithNestedJSON(){
+        String mini = "{\"simple\":{\"nested\":{\"example\":3},\"papaj\":4}}";
+        JSONObject output;
+        JSONObject input = new JSONObject(mini);
+        try {
+            output = prettify.decorate(input);
+            assertEquals(output.getJson().replace("\r", ""), "{\n  \"simple\" : {\n    \"nested\" : {\n      \"example\" : 3\n    },\n    \"papaj\" : 4\n  }\n}");
+        } catch (JSONException e) {
+            System.err.println(e.getMessage());
+            fail();
+        }
+    }
+
+    @Test
+    void testIsPrettifyDecorationWorkingWithArray(){
+        String mini = "{\"simple\":[\"a\",\"b\",\"c\"]}";
+        JSONObject output;
+        JSONObject input = new JSONObject(mini);
+        try {
+            output = prettify.decorate(input);
+            assertEquals(output.getJson().replace("\r", ""), "{\n  \"simple\" : [ \"a\", \"b\", \"c\" ]\n}");
+        } catch (JSONException e) {
+            System.err.println(e.getMessage());
+            fail();
+        }
     }
 
     @Test
