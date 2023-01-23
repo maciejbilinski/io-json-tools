@@ -13,10 +13,10 @@ import static java.lang.Integer.min;
 /**
  * The type Json show diff.
  */
-public class JSONShowDIff {
-    private final static Logger logger = LoggerFactory.getLogger(JSONShowDIff.class);
+public class JSONShowDiff {
+    private final static Logger logger = LoggerFactory.getLogger(JSONShowDiff.class);
 
-    public JSONShowDIff(){
+    public JSONShowDiff(){
     }
 
     /**

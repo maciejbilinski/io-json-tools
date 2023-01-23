@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-class JSONShowDIffTest extends BaseTest{
+class JSONShowDiffTest extends BaseTest{
 
     @Test
     void testShowDiffWorking() {
-        JSONShowDIff showDIff = new JSONShowDIff();
+        JSONShowDiff showDIff = new JSONShowDiff();
         String text1 = "Line 1\nLine 2";
         String text2 = "Line 1\nDifferent line\nAdditional line";
         Integer[] expectedDiff = {1, 2};
@@ -18,7 +18,7 @@ class JSONShowDIffTest extends BaseTest{
 
     @Test
     void testEmptyOneString() {
-        JSONShowDIff showDIff = new JSONShowDIff();
+        JSONShowDiff showDIff = new JSONShowDiff();
         String text1 = "Line 1\nLine 2\nLine 3";
         String text2 = "";
         Integer[] expectedDiff = {0, 1, 2};
@@ -27,7 +27,7 @@ class JSONShowDIffTest extends BaseTest{
 
     @Test
     void testBothEmptyStrings() {
-        JSONShowDIff showDIff = new JSONShowDIff();
+        JSONShowDiff showDIff = new JSONShowDiff();
         String text1 = "";
         String text2 = "";
         Integer[] expectedDiff = {};
@@ -36,7 +36,7 @@ class JSONShowDIffTest extends BaseTest{
 
     @Test
     void testWhitespaceSensitive() {
-        JSONShowDIff showDIff = new JSONShowDIff();
+        JSONShowDiff showDIff = new JSONShowDiff();
         String text1 = " ";
         String text2 = "";
         Integer[] expectedDiff = {0};
@@ -45,7 +45,7 @@ class JSONShowDIffTest extends BaseTest{
 
     @Test
     void testEmojiSensitive() {
-        JSONShowDIff showDIff = new JSONShowDIff();
+        JSONShowDiff showDIff = new JSONShowDiff();
         String text1 = "❤️";
         String text2 = "";
         Integer[] expectedDiff = {0};
