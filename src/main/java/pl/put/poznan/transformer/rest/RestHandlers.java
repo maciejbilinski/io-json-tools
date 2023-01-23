@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.springframework.http.ResponseEntity;
-import pl.put.poznan.transformer.logic.JSONShowDIff;
+import pl.put.poznan.transformer.logic.JSONShowDiff;
 import pl.put.poznan.transformer.logic.domain.JSONException;
 import pl.put.poznan.transformer.logic.tools.IJSONTool;
 
@@ -79,7 +79,7 @@ class RestHandlers {
      */
     public ResponseEntity<String> handleComparisonRequest(String payload){
         final ObjectMapper objectMapper = new ObjectMapper();
-        final JSONShowDIff tool = new JSONShowDIff();
+        final JSONShowDiff tool = new JSONShowDiff();
 
         try{
             String[] texts = transformPayloadForComparison(payload);
