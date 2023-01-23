@@ -18,6 +18,22 @@ function createComparison(num, diff){
     }
 }
 
+function generateKeys() {
+    const jsonText = document.getElementById("input").value.toString();
+    try {
+        const jsonObject = JSON.parse(jsonText);
+        const keys = Object.keys(jsonObject);
+        let strKeys = `<select id="json-keys" multiple>`;
+        keys.forEach(function(i) {
+            strKeys += `<option value="${i}">${i}</option>`;
+        })
+        strKeys += `</select>`;
+        document.getElementById("keys-container").innerHTML = strKeys;
+    } catch(e) {
+        document.getElementById("keys-container").innerHTML = "Invalid input JSON, can't parse";
+    }
+}
+
 function callAPI(btn){
     const path = btn.getAttribute('operation');
 
@@ -33,7 +49,7 @@ function callAPI(btn){
 
 
     xhttp.onload = function() {
-        if(path === 'minify' || path == 'pretty'){
+        if(path === 'minify' || path == 'pretty' || path == 'blacklist'){
             document.getElementById("output").value = this.responseText;
         }else if(path == 'compare'){
             const output = JSON.parse(this.responseText);
@@ -72,6 +88,10 @@ function callAPI(btn){
             text1: document.getElementById("text1").value,
             text2: document.getElementById("text2").value,
         }));
+    }else if(path == 'blacklist'){
+        const keys = Array.from(document.querySelectorAll('#json-keys option:checked')).map(el => el.value);
+        const msgKeys = '["' + keys.join('","') + '"]';
+        xhttp.send(`{"json":${document.getElementById("input").value}, "keys":${msgKeys}}`);
     }else{
         const msg = "Unimplemented frontend operation - please add it to js/action.js file!";
         document.getElementById("output").value = msg;
