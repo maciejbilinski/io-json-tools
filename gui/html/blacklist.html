@@ -18,7 +18,9 @@
         </h2>
         <section class="textarea-container">
             <textarea id="input" class="textarea input" placeholder="JSON to blacklist" oninput="generateKeys();"></textarea>
-            <div id="keys-container"></div>
+            <div id="keys-container">
+                <select multiple class="keys-select" disabled="disabled"></select>
+            </div>
             <div class="action-container">
                 <button class="action" operation="blacklist">&gt;</button>
             </div>

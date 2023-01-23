@@ -23,14 +23,14 @@ function generateKeys() {
     try {
         const jsonObject = JSON.parse(jsonText);
         const keys = Object.keys(jsonObject);
-        let strKeys = `<select id="json-keys" multiple>`;
+        let strKeys = `<select id="json-keys" multiple class="keys-select">`;
         keys.forEach(function(i) {
             strKeys += `<option value="${i}">${i}</option>`;
         })
         strKeys += `</select>`;
         document.getElementById("keys-container").innerHTML = strKeys;
     } catch(e) {
-        document.getElementById("keys-container").innerHTML = "Invalid input JSON, can't parse";
+        document.getElementById("keys-container").innerHTML = `<select multiple class="keys-select" disabled="disabled"></select>`;
     }
 }
 
