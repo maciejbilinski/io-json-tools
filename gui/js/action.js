@@ -88,7 +88,7 @@ function callAPI(btn){
             text1: document.getElementById("text1").value,
             text2: document.getElementById("text2").value,
         }));
-    }else if(path == 'blacklist'){
+    }else if(path == 'blacklist' || path == 'whitelist'){
         const keys = Array.from(document.querySelectorAll('#json-keys option:checked')).map(el => el.value);
         const msgKeys = '["' + keys.join('","') + '"]';
         xhttp.send(`{"json":${document.getElementById("input").value}, "keys":${msgKeys}}`);
