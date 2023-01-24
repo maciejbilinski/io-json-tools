@@ -49,7 +49,7 @@ function callAPI(btn){
 
 
     xhttp.onload = function() {
-        if(path === 'minify' || path == 'pretty' || path == 'blacklist'){
+        if(path === 'minify' || path == 'pretty' || path == 'blacklist' || path == 'whitelist'){
             document.getElementById("output").value = this.responseText;
         }else if(path == 'compare'){
             const output = JSON.parse(this.responseText);
